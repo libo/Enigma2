@@ -281,7 +281,10 @@ int eSubtitleWidget::event(int event, void *data, void *data2)
 						face = Subtitle_Bold;
 						break;
 					}
-					text = text.substr(3, text.length()-7);
+					text = replace_all(text, "<i>", "");
+					text = replace_all(text, "</i>", "");
+					text = replace_all(text, "<b>", "");
+					text = replace_all(text, "</b>", "");
 				}
 
 				subtitleStyles[face].font->pointSize=fontsize;
